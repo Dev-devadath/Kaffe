@@ -1,6 +1,6 @@
 # 🎨 Art-to-Content: AI-Powered Repurposing for Visual Creators
 
-> Turn any piece of visual art into ready-to-publish SEO content — in seconds.
+> Turn any piece of visual art into ready-to-publish SEO content — and let our AI agent publish it everywhere for you. Zero manual work.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
@@ -11,14 +11,15 @@
 
 Freelance artists, illustrators, and designers create stunning visuals—but struggle to promote them or monetize their work through blogs, social media, or SEO.
 
-**Art-to-Content** solves this by:
+**Art-to-Content** is an AI agent that solves this by:
 - Uploading an image (e.g., an illustration, digital painting, or design)
 - Using GPT-4o Vision to analyze themes, mood, and visual elements
 - Automatically generating:
   - A 200-word SEO-friendly blog intro + 2 FAQs
   - A 3-tweet viral thread with hashtags
   - 3–5 intent-based keywords for discoverability
-- All in one clean, copy-paste interface.
+- **Automatically publishing** to your connected platforms (Medium, Instagram, Twitter/X, etc.)
+- **Zero manual work** — the agent handles everything from content creation to publishing
 
 ## 💡 Unique Edge
 
@@ -26,19 +27,21 @@ Freelance artists, illustrators, and designers create stunning visuals—but str
 
 ## 🎯 Target User
 
-**Riya, 28, freelance illustrator**
-- Creates beautiful nature-themed digital art
-- Wants to grow her audience on Instagram & Medium
-- Doesn't have time to write captions, blogs, or SEO meta descriptions
-- Feels "stuck" turning art into income or visibility
+**Visual creators** (artists, illustrators, designers) who:
+- Create stunning visual artwork but struggle with content promotion
+- Want to grow their audience across multiple platforms (Instagram, Medium, Twitter/X, etc.)
+- Don't have time to write captions, blogs, or SEO meta descriptions
+- Want to monetize their art but feel "stuck" turning art into income or visibility
+- Need an automated solution that handles everything — from content creation to publishing
 
 ## ✨ Features
 
 - 🖼️ **Image Upload & Analysis**: Upload any visual artwork and get instant AI-powered analysis
-- 📝 **SEO Blog Content**: Generate 200-word blog introductions with FAQs
-- 🐦 **Social Media Posts**: Create 3-tweet viral threads with relevant hashtags
+- 📝 **SEO Blog Content**: Automatically generate 200-word blog introductions with FAQs
+- 🐦 **Social Media Posts**: Create and publish 3-tweet viral threads with relevant hashtags
 - 🔍 **Keyword Discovery**: Get 3-5 intent-based keywords for better discoverability
-- ⚡ **Fast & Efficient**: Get results in seconds, not hours
+- 🤖 **Automated Publishing Agent**: Automatically publishes to your connected platforms (Medium, Instagram, Twitter/X, etc.)
+- ⚡ **Zero Manual Work**: The agent handles everything — you just upload and go
 - 🎨 **Clean Interface**: Simple, intuitive UI for seamless workflow
 
 ## 🚀 Tech Stack
@@ -134,12 +137,14 @@ The frontend will be available at `http://localhost:5173` (or the port shown in 
 ### Using the Application
 
 1. Open the application in your browser
-2. Upload an image of your artwork
-3. Wait for AI analysis (usually takes a few seconds)
-4. Copy the generated content:
-   - Blog intro and FAQs
-   - Social media thread
-   - SEO keywords
+2. Connect your social media and blog accounts (Medium, Instagram, Twitter/X, etc.)
+3. Upload an image of your artwork
+4. Wait for AI analysis and content generation (usually takes a few seconds)
+5. **That's it!** The agent automatically:
+   - Publishes your blog post to Medium
+   - Posts your tweets to Twitter/X
+   - Shares your content on Instagram
+   - All without you lifting a finger
 
 ## 📁 Project Structure
 
