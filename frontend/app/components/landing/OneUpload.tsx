@@ -6,12 +6,12 @@ interface ProcessStep {
 export function OneUpload() {
   const steps: ProcessStep[] = [
     {
-      title: "Upload Artwork",
+      title: "Upload Creative Work",
       description:
         "Share your product photo or creative piece with Kaffe's main orchestrator",
     },
     {
-      title: "Vision Analysis",
+      title: "Visual Analysis",
       description:
         "Image Analysis Agent examines composition, style, colors, and emotional impact",
     },
@@ -37,6 +37,13 @@ export function OneUpload() {
     },
   ];
 
+  // Generate random rotations for each card (-2 to 2 degrees)
+  const rotations = steps.map(() => {
+    const direction = Math.random() > 0.5 ? 1 : -1;
+    const angle = (Math.random() * 2 + 0.5) * direction; // Random between 0.5-2.5 degrees
+    return angle;
+  });
+
   return (
     <section className="px-6 py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
@@ -56,7 +63,22 @@ export function OneUpload() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg border-2 border-[#6C5F48]"
+              className="bg-white p-6 rounded-lg border-2 border-[#6C5F48] transition-transform duration-300 ease-in-out"
+              style={
+                {
+                  "--rotation": `${rotations[index]}deg`,
+                  transform: `rotate(var(--rotation))`,
+                } as React.CSSProperties & { "--rotation": string }
+              }
+              onMouseEnter={(e) => {
+                e.currentTarget.style.setProperty("--rotation", "0deg");
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.setProperty(
+                  "--rotation",
+                  `${rotations[index]}deg`
+                );
+              }}
             >
               <div className="font-secondary text-[#813837] text-3xl mb-4">
                 {step.title}

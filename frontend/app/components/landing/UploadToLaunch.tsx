@@ -41,7 +41,7 @@ export function UploadToLaunch() {
   return (
     <section className="px-6 py-16 md:py-24 bg-[#342612] text-[#EAD7BA]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-primary text-4xl md:text-5xl font-bold mb-4 text-center">
+        <h2 className="font-primary text-4xl md:text-5xl font-medium mb-4 text-center">
           From Upload to Launch in 60 Seconds
         </h2>
         <p className="font-primary text-xl text-center mb-16 text-[#EAD7BA]/80">
