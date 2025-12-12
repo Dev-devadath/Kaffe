@@ -19,19 +19,23 @@ export function Dashboard() {
   const imagePreview = location.state?.imagePreview || null;
 
   const [editingPlatform, setEditingPlatform] = useState<string | null>(null);
-  const [editedContent, setEditedContent] = useState<Record<string, string>>({});
+  const [editedContent, setEditedContent] = useState<Record<string, string>>(
+    {}
+  );
 
   // Mock platform data - in real app, this would come from the API
   const platforms: PlatformContent[] = [
     {
       platform: "Instagram",
-      content: results?.social_thread?.[0] || "Your Instagram post content here...",
+      content:
+        results?.social_thread?.[0] || "Your Instagram post content here...",
       performance: { engagement: 85, reach: 1200, score: 92 },
       needsImage: true,
     },
     {
       platform: "Twitter/X",
-      content: results?.social_thread?.join("\n\n") || "Your Twitter thread here...",
+      content:
+        results?.social_thread?.join("\n\n") || "Your Twitter thread here...",
       performance: { engagement: 72, reach: 850, score: 78 },
       needsImage: false,
     },
@@ -129,7 +133,9 @@ export function Dashboard() {
                     </div>
                   </div>
                   <div>
-                    <div className="font-primary text-sm text-[#342612]/70">Reach</div>
+                    <div className="font-primary text-sm text-[#342612]/70">
+                      Reach
+                    </div>
                     <div className="font-primary text-lg font-semibold text-[#342612]">
                       {platform.performance.reach}
                     </div>
@@ -160,8 +166,7 @@ export function Dashboard() {
                   <div className="space-y-2">
                     <textarea
                       value={
-                        editedContent[platform.platform] ||
-                        platform.content
+                        editedContent[platform.platform] || platform.content
                       }
                       onChange={(e) =>
                         setEditedContent({
@@ -222,4 +227,3 @@ export function Dashboard() {
     </div>
   );
 }
-

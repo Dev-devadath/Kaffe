@@ -17,6 +17,7 @@ This document outlines all the APIs needed for the complete user flow.
 **Purpose**: Main API endpoint that analyzes the uploaded image and generates all marketing content.
 
 **Request**:
+
 - Method: `POST`
 - Content-Type: `multipart/form-data`
 - Body:
@@ -27,6 +28,7 @@ This document outlines all the APIs needed for the complete user flow.
   ```
 
 **Response**:
+
 ```json
 {
   "blog_intro": "This stunning piece of artwork showcases...",
@@ -49,7 +51,13 @@ This document outlines all the APIs needed for the complete user flow.
     "The process of creating this was both challenging...",
     "Art isn't just about what you see—it's about..."
   ],
-  "keywords": ["digital art", "contemporary art", "visual storytelling", "creative marketing", "art promotion"]
+  "keywords": [
+    "digital art",
+    "contemporary art",
+    "visual storytelling",
+    "creative marketing",
+    "art promotion"
+  ]
 }
 ```
 
@@ -62,9 +70,11 @@ This document outlines all the APIs needed for the complete user flow.
 **Purpose**: Generate platform-specific images (e.g., Instagram post images).
 
 **Request**:
+
 - Method: `POST`
 - Content-Type: `application/json`
 - Body:
+
 ```json
 {
   "platform": "instagram",
@@ -75,6 +85,7 @@ This document outlines all the APIs needed for the complete user flow.
 ```
 
 **Response**:
+
 ```json
 {
   "image_url": "https://...",
@@ -91,9 +102,11 @@ This document outlines all the APIs needed for the complete user flow.
 **Purpose**: Save edited content for a specific platform.
 
 **Request**:
+
 - Method: `PUT` or `PATCH`
 - Content-Type: `application/json`
 - Body:
+
 ```json
 {
   "platform": "instagram",
@@ -103,6 +116,7 @@ This document outlines all the APIs needed for the complete user flow.
 ```
 
 **Response**:
+
 ```json
 {
   "success": true,
@@ -119,10 +133,12 @@ This document outlines all the APIs needed for the complete user flow.
 **Purpose**: Get performance metrics for content across platforms.
 
 **Request**:
+
 - Method: `GET`
 - Path Parameter: `session_id` or `content_id`
 
 **Response**:
+
 ```json
 {
   "platforms": [
@@ -151,17 +167,20 @@ This document outlines all the APIs needed for the complete user flow.
 ## Implementation Priority
 
 ### Phase 1: Core Functionality (Required for MVP)
+
 1. ✅ **POST `/api/analyze-image`** - Must be implemented for the flow to work
    - This is the main API that powers the entire flow
    - Called from: `frontend/app/pages/processing.tsx:74`
 
 ### Phase 2: Enhanced Features (Nice to have)
+
 2. **POST `/api/generate-image`** - For Instagram image generation
    - Called from: `frontend/app/pages/dashboard.tsx:62`
 3. **PUT `/api/content/:id`** - For saving edited content
    - Called from: `frontend/app/pages/dashboard.tsx:57`
 
 ### Phase 3: Analytics (Future)
+
 4. **GET `/api/performance/:session_id`** - For real performance metrics
    - Currently mocked in: `frontend/app/pages/dashboard.tsx:25-50`
 
@@ -180,15 +199,18 @@ This document outlines all the APIs needed for the complete user flow.
 ## Next Steps
 
 1. **Implement `/api/analyze-image`** endpoint in `backend/app/routes.py`
+
    - Use OpenAI GPT-4o Vision API for image analysis
    - Generate blog intro, FAQs, social thread, and keywords
    - Return the response structure shown above
 
 2. **Update `backend/main.py`** to include the router
+
    - Import routes from `app.routes`
    - Add CORS middleware for frontend communication
 
 3. **Test the flow**:
+
    - Upload image → Processing → Dashboard
    - Verify all content displays correctly
 
@@ -202,4 +224,3 @@ This document outlines all the APIs needed for the complete user flow.
 - Production: TBD
 
 All API calls from frontend currently use: `http://localhost:8000/api/...`
-

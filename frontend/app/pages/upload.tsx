@@ -24,21 +24,21 @@ export function Upload() {
     if (!file) return;
 
     setIsUploading(true);
-    
+
     // Convert file to base64 for passing through state
     const reader = new FileReader();
     reader.onloadend = () => {
       const base64String = reader.result as string;
       // Navigate to processing page with file data
       // The processing page will handle the actual API call
-      navigate("/app/processing", { 
-        state: { 
+      navigate("/app/processing", {
+        state: {
           fileData: base64String,
           fileName: file.name,
           fileType: file.type,
           fileSize: file.size,
-          imagePreview: preview
-        } 
+          imagePreview: preview,
+        },
       });
     };
     reader.readAsDataURL(file);
@@ -52,7 +52,7 @@ export function Upload() {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     const droppedFile = e.dataTransfer.files?.[0];
     if (droppedFile && droppedFile.type.startsWith("image/")) {
       setFile(droppedFile);
@@ -71,7 +71,8 @@ export function Upload() {
           Upload Your Artwork
         </h1>
         <p className="font-primary text-xl text-[#342612] mb-12 text-center max-w-2xl mx-auto">
-          Upload your artwork or product image to transform it into a complete marketing toolkit
+          Upload your artwork or product image to transform it into a complete
+          marketing toolkit
         </p>
 
         <div className="bg-white rounded-lg border-2 border-[#6C5F48] p-8">
@@ -170,4 +171,3 @@ export function Upload() {
     </div>
   );
 }
-
