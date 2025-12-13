@@ -201,6 +201,16 @@ export function Processing() {
   return (
     <div className="min-h-screen bg-[#EAD7BA] p-6 flex items-center justify-center font-primary">
       <div className="w-full max-w-3xl mx-auto">
+                {/* Step Indicator */}
+        <div className="flex justify-center items-center mb-12 font-mono-retro text-sm md:text-base tracking-widest text-[#6C5F48]">
+          <span className="font-bold border-b-2 border-[#813837] text-[#813837]">
+            1. UPLOAD
+          </span>
+          <span className="mx-4 font-bold border-b-2 border-[#813837] text-[#813837]">→</span>
+          <span className="font-bold border-b-2 border-[#813837] text-[#813837]">2. ANALYZE</span>
+          <span className="mx-4 text-[#6C5F48]/50">→</span>
+          <span className="opacity-50">3. REPURPOSE</span>
+        </div>
         {/* Main Card - White Background as requested due to contrast issues */}
         <div className="bg-[#FFFFFF] retro-card p-8 md:p-12 relative overflow-hidden shadow-[8px_8px_0px_#6C5F48]">
           <div className="flex flex-col items-center mb-10 relative z-20">
