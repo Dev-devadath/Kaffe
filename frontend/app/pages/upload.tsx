@@ -64,7 +64,8 @@ export function Upload() {
     <div className="min-h-screen bg-[#EAD7BA] p-6 flex flex-col items-center justify-center font-primary">
       <div className="w-full max-w-4xl relative">
         {/* Back Button */}
-        <div className="absolute top-0 left-0 -mt-20 md:-mt-0 md:-ml-24">
+        {/* Back Button */}
+        <div className="w-full flex justify-start mb-8">
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-2 bg-[#813837] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
@@ -149,7 +150,7 @@ export function Upload() {
                   <img
                     src={preview}
                     alt="Preview"
-                    className="w-full h-auto border-2 border-[#342612] filter contrast-110 sepia-[0.3]"
+                    className="w-full h-auto max-h-[500px] object-contain border-2 border-[#342612] filter contrast-110 sepia-[0.3]"
                   />
                   <div className="absolute top-0 right-0 p-4 z-20">
                     <button
