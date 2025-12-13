@@ -114,7 +114,7 @@ export function Processing() {
                   if (status === "pending") return null;
 
                   return (
-                    <div key={step.index} className={`mb-2 ${status === 'active' ? 'text-[#EAD7BA]' : 'text-[#EAD7BA]/50'}`}>
+                    <div key={step.index} className={`mb-2 ${status === 'active' ? 'text-[#342612]' : 'text-[#342612]/50'}`}>
                       <span className="mr-2">
                         {status === "complete" ? "[OK]" : "[..]"}
                       </span>
@@ -122,7 +122,7 @@ export function Processing() {
                         &gt; {step.name}...
                       </span>
                       {status === "active" && (
-                        <span className="inline-block w-2 H-4 bg-[#EAD7BA] ml-1 animate-pulse">_</span>
+                        <span className="inline-block w-2 H-4 bg-[#342612] ml-1 animate-pulse">_</span>
                       )}
                     </div>
                   );
