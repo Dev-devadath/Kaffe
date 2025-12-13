@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="px-6 py-20 md:py-32 text-center relative overflow-hidden h-screen">
+    <section className="px-6 py-20 md:py-32 text-center relative overflow-hidden">
       {/* Decorative vintage elements */}
       <div className="absolute top-10 left-10 w-16 h-16 border-t-2 border-l-2 border-[#6C5F48] opacity-50"></div>
       <div className="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-[#6C5F48] opacity-50"></div>
@@ -28,15 +28,15 @@ export function Hero() {
       </p>
 
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-4">
-        <span className="md:absolute md:right-90 md:bottom-10 md:rotate-25 font-secondary text-[#342612] text-xl order-2 md:order-1">
-          or scroll to learn more
-        </span>
+
         <a
           href="/app"
           className="bg-[#813837] text-[#EAD7BA] px-8 py-4 text-xl font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] order-1 md:order-2"
         >
           Start Making
-        </a>
+        </a>        <span className=" font-secondary text-[#342612] text-xl order-2 md:order-1">
+          or scroll to learn more
+        </span>
       </div>
     </section>
   );

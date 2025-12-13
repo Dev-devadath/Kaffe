@@ -71,12 +71,7 @@ export function Dashboard() {
   // Mock data for new analytics
   const trendsData = [20, 35, 45, 30, 55, 65, 80];
   const maxTrend = Math.max(...trendsData);
-  const chartPoints = trendsData
-    .map(
-      (val, i) =>
-        `${i * (100 / (trendsData.length - 1))},${100 - (val / maxTrend) * 100}`
-    )
-    .join(" ");
+  const chartPoints = trendsData.map((val, i) => `${i * (100 / (trendsData.length - 1))},${100 - (val / maxTrend) * 100}`).join(" ");
 
   return (
     <div className="min-h-screen bg-[#EAD7BA] p-6 font-primary">
@@ -84,9 +79,7 @@ export function Dashboard() {
         <div className="flex flex-col md:flex-row gap-8 mb-12 items-end">
           <div className="flex-1">
             <div className="border-b-2 border-[#6C5F48] mb-4 pb-2">
-              <span className="bg-[#6C5F48] text-[#EAD7BA] px-3 py-1 font-mono-retro text-xs uppercase tracking-widest">
-                Analytics Report
-              </span>
+              <span className="bg-[#6C5F48] text-[#EAD7BA] px-3 py-1 font-mono-retro text-xs uppercase tracking-widest">Analytics Report</span>
             </div>
             <h1 className="font-primary text-5xl font-bold text-[#342612] uppercase tracking-tight text-shadow-retro leading-none">
               Marketing Toolkit
@@ -97,10 +90,7 @@ export function Dashboard() {
           </div>
 
           <div className="flex gap-4">
-            <Link
-              to="/app"
-              className="bg-[#EAD7BA] text-[#342612] border-2 border-[#342612] px-6 py-3 font-bold uppercase hover:bg-[#342612] hover:text-[#EAD7BA] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none"
-            >
+            <Link to="/app" className="bg-[#EAD7BA] text-[#342612] border-2 border-[#342612] px-6 py-3 font-bold uppercase hover:bg-[#342612] hover:text-[#EAD7BA] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none">
               New Project
             </Link>
             <button className="bg-[#813837] text-[#EAD7BA] border-2 border-[#342612] px-6 py-3 font-bold uppercase hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none">
@@ -119,9 +109,7 @@ export function Dashboard() {
                   alt="Uploaded artwork"
                   className="w-full h-full object-cover filter contrast-110 sepia-[0.2]"
                 />
-                <div className="absolute bottom-0 right-0 bg-[#813837] text-[#EAD7BA] px-3 py-1 font-mono-retro text-xs">
-                  IMG_SRC_01
-                </div>
+                <div className="absolute bottom-0 right-0 bg-[#813837] text-[#EAD7BA] px-3 py-1 font-mono-retro text-xs">IMG_SRC_01</div>
               </div>
             </div>
           )}
@@ -129,24 +117,15 @@ export function Dashboard() {
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* SEO Strength Meter */}
             <div className="bg-[#FFFFFF] retro-card p-6 flex flex-col justify-between">
-              <h3 className="font-bold text-[#342612] uppercase border-b-2 border-[#6C5F48] pb-2 mb-4">
-                SEO Strength
-              </h3>
+              <h3 className="font-bold text-[#342612] uppercase border-b-2 border-[#6C5F48] pb-2 mb-4">SEO Strength</h3>
               <div className="flex items-end gap-4">
-                <div className="text-6xl font-bold text-[#813837]">
-                  92<span className="text-2xl text-[#6C5F48]">%</span>
-                </div>
+                <div className="text-6xl font-bold text-[#813837]">92<span className="text-2xl text-[#6C5F48]">%</span></div>
                 <div className="mb-2 font-mono-retro text-xs text-[#342612]/70">
-                  Keyword density optimal.
-                  <br />
-                  Readability high.
+                  Keyword density optimal.<br />Readability high.
                 </div>
               </div>
               <div className="w-full h-4 bg-[#EAD7BA] mt-4 border border-[#6C5F48] relative">
-                <div
-                  className="absolute top-0 left-0 h-full bg-[#813837]"
-                  style={{ width: "92%" }}
-                ></div>
+                <div className="absolute top-0 left-0 h-full bg-[#813837]" style={{ width: '92%' }}></div>
                 {/* Ticks */}
                 <div className="absolute top-0 left-1/4 h-full w-[1px] bg-[#6C5F48]/50"></div>
                 <div className="absolute top-0 left-1/2 h-full w-[1px] bg-[#6C5F48]/50"></div>
@@ -156,70 +135,34 @@ export function Dashboard() {
 
             {/* Keyword Opportunities */}
             <div className="bg-[#FFFFFF] retro-card p-6">
-              <h3 className="font-bold text-[#342612] uppercase border-b-2 border-[#6C5F48] pb-2 mb-4">
-                Keywords
-              </h3>
+              <h3 className="font-bold text-[#342612] uppercase border-b-2 border-[#6C5F48] pb-2 mb-4">Keywords</h3>
               <div className="flex flex-wrap gap-2">
                 {results?.keywords?.slice(0, 5).map((kw: string, i: number) => (
-                  <span
-                    key={i}
-                    className="bg-[#EAD7BA] border border-[#6C5F48] px-2 py-1 text-sm font-mono-retro text-[#342612]"
-                  >
-                    #{kw.replace(/\s+/g, "")}
+                  <span key={i} className="bg-[#EAD7BA] border border-[#6C5F48] px-2 py-1 text-sm font-mono-retro text-[#342612]">
+                    #{kw.replace(/\s+/g, '')}
                   </span>
-                )) || (
-                  <span className="text-sm italic opacity-50">
-                    No keywords detected
-                  </span>
-                )}
+                )) || <span className="text-sm italic opacity-50">No keywords detected</span>}
               </div>
             </div>
 
             {/* Engagement Trends Chart */}
             <div className="bg-[#342612] retro-card p-6 md:col-span-2 text-[#EAD7BA]">
               <div className="flex justify-between items-center mb-4 border-b border-[#EAD7BA]/20 pb-2">
-                <h3 className="font-bold uppercase tracking-widest">
-                  Engagement Projection
-                </h3>
-                <span className="font-mono-retro text-xs text-[#EAD7BA]/50">
-                  LAST 7 DAYS
-                </span>
+                <h3 className="font-bold uppercase tracking-widest">Engagement Projection</h3>
+                <span className="font-mono-retro text-xs text-[#EAD7BA]/50">LAST 7 DAYS</span>
               </div>
 
               <div className="h-32 w-full relative">
                 {/* Chart Grid */}
                 <div className="absolute inset-0 grid grid-cols-6 grid-rows-4">
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-t border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-b border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-b border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-b border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-b border-[#EAD7BA]/10"></div>
-                  <div className="border-r border-t border-b border-[#EAD7BA]/10"></div>
-                  <div className="border-t border-b border-[#EAD7BA]/10"></div>
+                  <div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-t border-[#EAD7BA]/10"></div>
+                  <div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-t border-[#EAD7BA]/10"></div>
+                  <div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-r border-t border-[#EAD7BA]/10"></div><div className="border-t border-[#EAD7BA]/10"></div>
+                  <div className="border-r border-t border-b border-[#EAD7BA]/10"></div><div className="border-r border-t border-b border-[#EAD7BA]/10"></div><div className="border-r border-t border-b border-[#EAD7BA]/10"></div><div className="border-r border-t border-b border-[#EAD7BA]/10"></div><div className="border-r border-t border-b border-[#EAD7BA]/10"></div><div className="border-t border-b border-[#EAD7BA]/10"></div>
                 </div>
 
                 {/* The Line */}
-                <svg
-                  className="w-full h-full absolute inset-0 overflow-visible"
-                  preserveAspectRatio="none"
-                >
+                <svg className="w-full h-full absolute inset-0 overflow-visible" preserveAspectRatio="none">
                   <polyline
                     points={chartPoints}
                     fill="none"
@@ -270,20 +213,12 @@ export function Dashboard() {
               {platform.performance && (
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="border border-[#6C5F48] p-3 bg-[#EAD7BA]/10">
-                    <div className="text-xs uppercase tracking-wider text-[#6C5F48] mb-1">
-                      Engagement
-                    </div>
-                    <div className="text-2xl font-bold text-[#342612]">
-                      {platform.performance.engagement}%
-                    </div>
+                    <div className="text-xs uppercase tracking-wider text-[#6C5F48] mb-1">Engagement</div>
+                    <div className="text-2xl font-bold text-[#342612]">{platform.performance.engagement}%</div>
                   </div>
                   <div className="border border-[#6C5F48] p-3 bg-[#EAD7BA]/10">
-                    <div className="text-xs uppercase tracking-wider text-[#6C5F48] mb-1">
-                      Potential Reach
-                    </div>
-                    <div className="text-2xl font-bold text-[#342612]">
-                      {platform.performance.reach}
-                    </div>
+                    <div className="text-xs uppercase tracking-wider text-[#6C5F48] mb-1">Potential Reach</div>
+                    <div className="text-2xl font-bold text-[#342612]">{platform.performance.reach}</div>
                   </div>
                 </div>
               )}
