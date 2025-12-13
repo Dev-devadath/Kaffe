@@ -104,13 +104,13 @@ async def upload_temp_image(file: UploadFile = File(...)):
         # Parse response from webhook
         result = webhook_response.json()
         
-        # Return session ID and results
+        # Return the expected format with status and data
+        # The webhook response should contain the strategies and analytics
         return JSONResponse(
             status_code=200,
             content={
-                "sessionId": session_id,
-                "tempUrl": temp_url,
-                "query": result
+                "status": "success",
+                "data": result.get("data", result)  # Use data field if present, otherwise use entire result
             }
         )
             
