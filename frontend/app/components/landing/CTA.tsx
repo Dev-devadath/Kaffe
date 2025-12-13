@@ -15,7 +15,7 @@ export function CTA() {
       </p>
       <div className="flex gap-6 justify-center flex-wrap">
         <Link
-          to="/app/upload"
+          to="/app"
           className="bg-[#813837] text-[#EAD7BA] px-10 py-4 font-primary text-xl font-bold uppercase tracking-wider hover:bg-[#EAD7BA] hover:text-[#813837] border-2 border-[#EAD7BA] transition-all shadow-[4px_4px_0px_#EAD7BA] active:translate-y-1 active:shadow-none"
         >
           Try Kaffe Now

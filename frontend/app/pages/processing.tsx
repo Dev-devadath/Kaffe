@@ -206,7 +206,7 @@ export function Processing() {
           <span className="font-bold border-b-2 border-[#813837] text-[#813837]">
             1. UPLOAD
           </span>
-          <span className="mx-4 font-bold border-b-2 border-[#813837] text-[#813837]">→</span>
+          <span className="mx-4 font-bold  text-[#813837]">→</span>
           <span className="font-bold border-b-2 border-[#813837] text-[#813837]">2. ANALYZE</span>
           <span className="mx-4 text-[#6C5F48]/50">→</span>
           <span className="opacity-50">3. REPURPOSE</span>
