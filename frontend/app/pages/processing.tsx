@@ -93,21 +93,21 @@ export function Processing() {
         setCurrentStep(2);
         await animateProgress(40, 300);
 
-        // Step 3: Uploading and Processing (40% -> 80%)
+        // Step 3: Uploading and Processing (40% -> 98%)
         setCurrentStep(3);
         await animateProgress(60, 200);
 
         // Simulate progress during API call
         const progressInterval = setInterval(() => {
           setProgressPercent((prev) => {
-            if (prev < 75) {
-              const newValue = Math.min(prev + 2, 75);
+            if (prev < 95) {
+              const newValue = Math.min(prev + 1, 95);
               progressRef.current = newValue;
               return newValue;
             }
             return prev;
           });
-        }, 200);
+        }, 150);
 
         // Call the API
         const response = await fetch(`${API_BASE_URL}/api/upload-temp-image`, {
@@ -116,7 +116,7 @@ export function Processing() {
         });
 
         clearInterval(progressInterval);
-        await animateProgress(80, 200);
+        await animateProgress(98, 200);
 
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));
@@ -129,7 +129,7 @@ export function Processing() {
 
         // Check if the response has the expected structure
         if (result.status === "success" && result.data) {
-          // Step 4: Finalizing (80% -> 100%)
+          // Step 4: Finalizing (98% -> 100%)
           setCurrentStep(4);
           animateProgress(100, 500);
 
