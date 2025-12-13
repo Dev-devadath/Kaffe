@@ -28,14 +28,14 @@ export function Hero() {
       </p>
 
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-4">
-
+  
         <a
           href="/app"
-          className="bg-[#813837] text-[#EAD7BA] px-8 py-4 text-xl font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] order-1 md:order-2"
+          className="bg-[#813837] text-[#EAD7BA] px-8 py-4 text-xl font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612]"
         >
           Start Making
         </a>
-        <span className=" font-secondary text-[#342612] text-xl order-2 md:order-1">
+              <span className="font-secondary text-[#342612] text-xl">
           or scroll to learn more
         </span>
       </div>

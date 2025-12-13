@@ -200,8 +200,20 @@ export function Processing() {
 
   return (
     <div className="min-h-screen bg-[#EAD7BA] p-6 flex items-center justify-center font-primary">
-      <div className="w-full max-w-3xl mx-auto">
-                {/* Step Indicator */}
+      <div className="w-full max-w-3xl mx-auto relative">
+        {/* Back Button */}
+        <div className="absolute top-0 left-0 -mt-24 md:-mt-0 md:-ml-32">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 bg-[#813837] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
+          >
+            <span className="transform group-hover:-translate-x-1 transition-transform">
+              ←
+            </span>
+            Back to Home
+          </button>
+        </div>
+        {/* Step Indicator */}
         <div className="flex justify-center items-center mb-12 font-mono-retro text-sm md:text-base tracking-widest text-[#6C5F48]">
           <span className="font-bold border-b-2 border-[#813837] text-[#813837]">
             1. UPLOAD
