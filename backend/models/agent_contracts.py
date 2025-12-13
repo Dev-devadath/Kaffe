@@ -3,16 +3,32 @@ from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field
 
 
+class VisualConstraints(BaseModel):
+    """Visual constraints for CVI preservation."""
+    exact_colors: List[str] = Field(default_factory=list, description="Precise color descriptions")
+    materials: str = Field(default="", description="Visible materials and textures")
+    shape_form: str = Field(default="", description="Geometric shape and form description")
+    forbidden_modifications: List[str] = Field(
+        default_factory=lambda: [
+            "Do not change color",
+            "Do not change proportions",
+            "Do not remove components",
+            "Do not add components",
+            "Do not redesign any visible part"
+        ],
+        description="Modifications that would alter product identity"
+    )
+
+
 class ImageAnalysisResult(BaseModel):
-    """Response schema for Image Analysis Agent."""
-    objects: List[str] = Field(default_factory=list, description="Detected objects")
-    ocr_text: Optional[str] = Field(default=None, description="Extracted text from image")
-    colors: List[str] = Field(default_factory=list, description="Dominant colors")
-    mood: Optional[str] = Field(default=None, description="Mood/emotion detected")
-    alt_text: Optional[str] = Field(default=None, description="Generated alt text")
-    hooks: List[str] = Field(default_factory=list, description="Visual hooks identified")
-    tags: List[str] = Field(default_factory=list, description="Relevant tags")
-    confidence: float = Field(default=0.0, ge=0.0, le=1.0, description="Confidence score")
+    """Response schema for Image Analysis Agent - Canonical Visual Identity (CVI) extraction."""
+    product_type: str = Field(default="", description="Specific product category")
+    visual_description: str = Field(default="", description="Precise description of visible appearance")
+    visible_features: List[str] = Field(default_factory=list, description="Specific observable features")
+    aesthetics_and_style: List[str] = Field(default_factory=list, description="Style and aesthetic attributes")
+    mood_or_emotion: List[str] = Field(default_factory=list, description="Emotions evoked by the design")
+    possible_use_cases: List[str] = Field(default_factory=list, description="Realistic use contexts")
+    visual_constraints: VisualConstraints = Field(default_factory=VisualConstraints, description="CVI preservation constraints")
 
 
 class BrandingResult(BaseModel):
