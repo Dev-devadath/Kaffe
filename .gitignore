@@ -8,3 +8,4 @@ venv/
 /.react-router/
 /build/
 
+auth.json

@@ -12,6 +12,7 @@
 Freelance artists, illustrators, and designers create stunning visuals—but struggle to promote them or monetize their work through blogs, social media, or SEO.
 
 **Art-to-Content** is an AI agent that solves this by:
+
 - Uploading an image (e.g., an illustration, digital painting, or design)
 - Using GPT-4o Vision to analyze themes, mood, and visual elements
 - Automatically generating:
@@ -28,6 +29,7 @@ Freelance artists, illustrators, and designers create stunning visuals—but str
 ## 🎯 Target User
 
 **Visual creators** (artists, illustrators, designers) who:
+
 - Create stunning visual artwork but struggle with content promotion
 - Want to grow their audience across multiple platforms (Instagram, Medium, Twitter/X, etc.)
 - Don't have time to write captions, blogs, or SEO meta descriptions
@@ -47,12 +49,14 @@ Freelance artists, illustrators, and designers create stunning visuals—but str
 ## 🚀 Tech Stack
 
 ### Backend
+
 - **Python 3.13** - Core language
 - **FastAPI** - Modern, fast web framework
 - **OpenAI GPT-4o Vision** - Multimodal AI for image analysis
 - **Uvicorn** - ASGI server
 
 ### Frontend
+
 - **React 19** - UI library
 - **React Router v7** - Routing and navigation
 - **TypeScript** - Type-safe development
@@ -197,13 +201,16 @@ bun run typecheck
 ## 🧪 API Endpoints
 
 ### POST `/api/analyze-image`
+
 Analyzes an uploaded image and generates content.
 
 **Request:**
+
 - `Content-Type: multipart/form-data`
 - `file`: Image file (PNG, JPG, JPEG, etc.)
 
 **Response:**
+
 ```json
 {
   "blog_intro": "...",
@@ -248,6 +255,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Built for **YIP / KSUM / NASA-themed Hackathon**
 
 **Why It Wins:**
+
 - ✅ **AI + Creativity**: Leverages cutting-edge multimodal AI (GPT-4o Vision)
 - ✅ **Real-world utility**: Solves a daily pain point for millions of creators
 - ✅ **Fast, focused scope**: Image → structured content (no scope creep)
@@ -256,4 +264,3 @@ Built for **YIP / KSUM / NASA-themed Hackathon**
 ---
 
 **Made with ❤️ for visual creators everywhere**
-
