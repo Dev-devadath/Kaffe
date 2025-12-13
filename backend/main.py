@@ -6,6 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 from pydantic_settings import BaseSettings
+import requests
+import uuid
+import os
 
 from models.job import JobRequest, JobResponse, JobStatus, JobMeta
 from services.job_manager import job_manager
@@ -20,6 +23,7 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     api_host: str = "0.0.0.0"
     api_port: int = 8000
+    external_agent_url: str = ""
     
     class Config:
         env_file = ".env"
@@ -295,6 +299,116 @@ async def list_jobs(
         ],
         "count": len(jobs)
     }
+
+
+ALLOWED_CONTENT_TYPES = [
+    "image/png",
+    "image/jpeg",
+    "image/jpg",
+    "image/webp"
+]
+
+
+@app.post("/api/upload-temp-image")
+async def upload_temp_image(file: UploadFile = File(...)):
+    """
+    Upload image to tmpfiles.org and process through external agent.
+    Returns strategies and analytics for Instagram, LinkedIn, and Blog.
+    """
+    # Validate content type
+    if file.content_type not in ALLOWED_CONTENT_TYPES:
+        return JSONResponse(
+            status_code=400,
+            content={"status": "error", "error": "Invalid image format"}
+        )
+    
+    # Generate session ID
+    session_id = str(uuid.uuid4())
+    
+    try:
+        # Read file bytes
+        file_bytes = await file.read()
+        
+        # Step 1: Upload to tmpfiles.org
+        files = {
+            'file': (file.filename, file_bytes, file.content_type)
+        }
+        
+        tmpfiles_response = requests.post(
+            "https://tmpfiles.org/api/v1/upload",
+            files=files
+        )
+        
+        if tmpfiles_response.status_code != 200:
+            return JSONResponse(
+                status_code=500,
+                content={"status": "error", "error": "Temporary file upload failed"}
+            )
+        
+        # Parse tmpfiles.org response
+        tmpfiles_data = tmpfiles_response.json()
+        
+        # Extract the URL and convert to direct link
+        if tmpfiles_data.get("status") == "success":
+            temp_url = tmpfiles_data["data"]["url"]
+            # Convert tmpfiles.org URL to direct download URL
+            temp_url = temp_url.replace("tmpfiles.org/", "tmpfiles.org/dl/")
+        else:
+            return JSONResponse(
+                status_code=500,
+                content={"status": "error", "error": "Failed to get temporary file URL"}
+            )
+        
+        # Step 2: POST the session ID and temporary link to the webhook
+        if not settings.external_agent_url:
+            return JSONResponse(
+                status_code=500,
+                content={"status": "error", "error": "EXTERNAL_AGENT_URL not configured"}
+            )
+        
+        webhook_response = requests.post(
+            settings.external_agent_url,
+            json={
+                "session_id": session_id,
+                "image_url": temp_url
+            }
+        )
+        
+        if webhook_response.status_code != 200:
+            return JSONResponse(
+                status_code=500,
+                content={
+                    "status": "error",
+                    "error": "Webhook request failed",
+                    "status_code": webhook_response.status_code,
+                    "response": webhook_response.text
+                }
+            )
+        
+        # Parse response from webhook
+        result = webhook_response.json()
+        
+        # Return the expected format with status and data
+        # The webhook response should contain the strategies and analytics
+        return JSONResponse(
+            status_code=200,
+            content={
+                "status": "success",
+                "data": result.get("data", result)  # Use data field if present, otherwise use entire result
+            }
+        )
+            
+    except requests.exceptions.RequestException as e:
+        return JSONResponse(
+            status_code=500,
+            content={"status": "error", "error": f"Request failed: {str(e)}"}
+        )
+    except Exception as e:
+        logger.error(f"Upload failed: {e}", exc_info=True)
+        return JSONResponse(
+            status_code=500,
+            content={"status": "error", "error": f"Upload failed: {str(e)}"}
+        )
 
 
 if __name__ == "__main__":
