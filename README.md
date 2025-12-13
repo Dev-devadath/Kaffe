@@ -1,4 +1,4 @@
-# ☕ Kaffe: Your AI Branding & Content Studio
+#  Kaffe: Your AI Branding & Content Studio
 
 > Transform any creative work or product image into a complete marketing toolkit in seconds. Stop spending hours on content creation—let AI handle your marketing while you focus on what you do best.
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 🎯 The Creator's Dilemma
+##  The Creator's Dilemma
 
 Creators can make visuals, but can't turn them into content—fast.
 
@@ -21,11 +21,11 @@ Creators can make visuals, but can't turn them into content—fast.
 
 ---
 
-## 💡 One Upload. Complete Marketing Kit.
+##  One Upload. Complete Marketing Kit.
 
 **Kaffe** transforms your creative work into comprehensive marketing materials through an intelligent multi-agent system. Upload once, get everything you need to promote across all channels.
 
-### 🔄 How It Works: From Upload to Launch in 60 Seconds
+###  How It Works: From Upload to Launch in 60 Seconds
 
 1. **Upload Your Work** — Share your product photo or creative piece with Kaffe's main orchestrator
 2. **Vision Analysis** — Image Analysis Agent examines composition, style, colors, and emotional impact
@@ -39,7 +39,7 @@ Creators can make visuals, but can't turn them into content—fast.
 
 ---
 
-## 🎨 Who Benefits from Kaffe
+##  Who Benefits from Kaffe
 
 - **Freelance Illustrators** — Turn portfolio pieces into engaging stories
 - **Designers** — Showcase work with professional marketing
@@ -49,7 +49,7 @@ Creators can make visuals, but can't turn them into content—fast.
 
 ---
 
-## 📊 Real Impact for Real Creators
+##  Real Impact for Real Creators
 
 More visibility. Less burnout. Authentic growth powered by intelligent automation.
 
@@ -59,24 +59,24 @@ More visibility. Less burnout. Authentic growth powered by intelligent automatio
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🖼️ **Intelligent Image Analysis** — Deep understanding of composition, style, and emotional impact
-- 📝 **SEO-Optimized Content** — Blogs, product descriptions, and meta tags
-- 🐦 **Platform-Specific Posts** — Custom content for Instagram, LinkedIn, Medium, and more
-- 🔍 **Keyword Strategy** — Intent-based keywords for better discoverability
-- 🎨 **Branding Consistency** — Maintains your unique voice across all content
-- 🤖 **Automated Publishing** — Direct posting to Instagram and LinkedIn (more platforms coming soon)
-- ⚡ **Multi-Agent Processing** — Parallel execution for lightning-fast results
-- 🎯 **Quality Assurance** — Final polish ensures publication-ready content
+-  **Intelligent Image Analysis** — Deep understanding of composition, style, and emotional impact
+-  **SEO-Optimized Content** — Blogs, product descriptions, and meta tags
+-  **Platform-Specific Posts** — Custom content for Instagram, LinkedIn, Medium, and more
+-  **Keyword Strategy** — Intent-based keywords for better discoverability
+-  **Branding Consistency** — Maintains your unique voice across all content
+-  **Automated Publishing** — Direct posting to Instagram and LinkedIn (more platforms coming soon)
+-  **Multi-Agent Processing** — Parallel execution for lightning-fast results
+-  **Quality Assurance** — Final polish ensures publication-ready content
 
 ---
 
-## 🚀 The Technology Behind Kaffe
+##  The Technology Behind Kaffe
 
 Built with cutting-edge tools and architectural precision to deliver fast, intelligent, and scalable content generation.
 
-### 🎯 Tech Stack
+###  Tech Stack
 
 #### Backend
 
@@ -93,17 +93,16 @@ Built with cutting-edge tools and architectural precision to deliver fast, intel
 
 #### Frontend
 
-- **Next.js 15** — React framework with server-side rendering
 - **React 19** — Latest React with concurrent features
 - **React Router v7** — Advanced routing and navigation
 - **TypeScript 5.9** — Type-safe development
 - **Tailwind CSS 4** — Utility-first styling framework
 - **Vite 7** — Ultra-fast build tool and dev server
-- **Supabase** — Backend as a Service for authentication
 - **Lucide React** — Beautiful icon library
 
 #### Automation & Integration
 
+- **N8N** - Agent builder
 - **Playwright Python** — Instagram and LinkedIn automation
 - **Browser Context Storage** — Session persistence for authenticated posting
 - **tmpfiles.org API** — Temporary image hosting
@@ -117,7 +116,7 @@ Built with cutting-edge tools and architectural precision to deliver fast, intel
 
 ---
 
-### 🏗️ Multi-Agent Architecture
+###  Multi-Agent Architecture
 
 Specialized agents handle distinct responsibilities:
 
@@ -131,7 +130,7 @@ Specialized agents handle distinct responsibilities:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Kaffe/
@@ -185,7 +184,7 @@ Kaffe/
 └── README.md                    # Project documentation
 ```
 
-### 📦 Dependencies
+###  Dependencies
 
 #### Backend Requirements (`requirements.txt`)
 
@@ -273,13 +272,13 @@ python-dotenv==1.0.0
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Python 3.13 or higher
 - Node.js 18+ or Bun
 - OpenAI API key
 
-## 🛠️ Installation
+##  Installation
 
 ### 1. Clone the repository
 
@@ -326,7 +325,7 @@ Create a `.env` file in the `backend` directory:
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-## 🎮 Usage
+##  Usage
 
 ### Start the Backend Server
 
@@ -368,7 +367,7 @@ The frontend will be available at `http://localhost:5173` (or the port shown in 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 kaffe/
@@ -406,7 +405,7 @@ kaffe/
 
 ---
 
-## 🔧 Development
+##  Development
 
 ### Backend Development
 
@@ -471,7 +470,7 @@ python instagram_poster.py "Caption text" image.jpg
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Backend (Render)
 
@@ -488,13 +487,13 @@ python instagram_poster.py "Caption text" image.jpg
 
 ---
 
-## 💡 Unique Edge
+##  Unique Edge
 
 > "Unlike generic AI writers that start from a blank prompt, **Kaffe starts from your art**—so your content is authentic, on-brand, and deeply connected to your creative voice."
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -506,13 +505,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## 🌟 Creators Should Create. Kaffe Does the Rest.
+##  Creators Should Create. Kaffe Does the Rest.
 
 **Kaffe** represents the future of creative marketing—where artists focus on art, and AI handles everything else. Join us in democratizing professional marketing for every creator.
 
@@ -530,9 +529,6 @@ _Built with ☕ by creators, for creators_
 - React Router team for the routing solution
 - All the open-source contributors whose libraries made this possible
 
-## 🏆 Hackathon Notes
-
-Built for **YIP / KSUM / NASA-themed Hackathon**
 
 **Why It Wins:**
 
