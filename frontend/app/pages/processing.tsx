@@ -44,8 +44,26 @@ export function Processing() {
   const fileType = location.state?.fileType || "image/jpeg";
   const imagePreview = location.state?.imagePreview as string | undefined;
   const [currentStep, setCurrentStep] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [useMockData] = useState(true); // Set to false when backend is ready
+
+  // Animate progress for active step
+  useEffect(() => {
+    if (currentStep === 0) return; // Don't animate for upload step
+
+    setProgress(0);
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          return 100;
+        }
+        return prev + 2; // Increment by 2% every ~40ms (takes ~2s to reach 100%)
+      });
+    }, 40);
+
+    return () => clearInterval(progressInterval);
+  }, [currentStep]);
 
   useEffect(() => {
     if (!fileData) {
@@ -57,12 +75,13 @@ export function Processing() {
     // Process the image
     const processImage = async () => {
       try {
-        setCurrentStep(1); // Analyzing Image
+        setCurrentStep(1); // Analyze
 
         // Simulate step progression
-        setTimeout(() => setCurrentStep(2), 1000); // Generating Content
-        setTimeout(() => setCurrentStep(3), 2000); // Optimizing for Platforms
-        setTimeout(() => setCurrentStep(4), 3000); // Finalizing
+        setTimeout(() => setCurrentStep(2), 1000); // Strategize
+        setTimeout(() => setCurrentStep(3), 2000); // Customize
+        setTimeout(() => setCurrentStep(4), 3000); // Generate
+        setTimeout(() => setCurrentStep(5), 4000); // Polish
 
         let data;
 
@@ -70,7 +89,7 @@ export function Processing() {
           // Use mock data for testing
           console.log("Using mock API data for testing");
           // Simulate API delay
-          await new Promise((resolve) => setTimeout(resolve, 4000));
+          await new Promise((resolve) => setTimeout(resolve, 5000));
           data = getMockApiResponse();
         } else {
           // Convert base64 back to File
@@ -129,11 +148,36 @@ export function Processing() {
   }, [fileData, fileName, fileType, navigate, imagePreview]);
 
   const steps = [
-    { name: "Uploading", index: 0 },
-    { name: "Analyzing Image", index: 1 },
-    { name: "Generating Content", index: 2 },
-    { name: "Optimizing for Platforms", index: 3 },
-    { name: "Finalizing", index: 4 },
+    {
+      name: "Upload",
+      description: "Drop your artwork or product image into Kaffe",
+      index: 0,
+    },
+    {
+      name: "Analyze",
+      description: "AI examines visual elements, specs, and creative intent",
+      index: 1,
+    },
+    {
+      name: "Strategize",
+      description: "SEO and branding agents develop your positioning",
+      index: 2,
+    },
+    {
+      name: "Customize",
+      description: "Channel planner adapts content for each platform",
+      index: 3,
+    },
+    {
+      name: "Generate",
+      description: "Content agents create blogs, captions, and copy",
+      index: 4,
+    },
+    {
+      name: "Polish",
+      description: "Quality agent ensures everything is publication-ready",
+      index: 5,
+    },
   ];
 
   const getStepStatus = (stepIndex: number) => {
@@ -170,36 +214,49 @@ export function Processing() {
               {steps.map((step) => {
                 const status = getStepStatus(step.index);
                 return (
-                  <div key={step.index} className="flex items-center gap-4">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-                        status === "complete"
-                          ? "bg-[#813837] text-[#EAD7BA]"
-                          : status === "active"
-                            ? "bg-[#813837] text-[#EAD7BA] animate-pulse"
-                            : "bg-[#6C5F48]/20 text-[#342612]/50"
-                      }`}
-                    >
-                      {status === "complete" ? "✓" : step.index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <p
-                        className={`font-primary text-lg ${
-                          status === "active"
-                            ? "text-[#342612] font-semibold"
-                            : status === "complete"
-                              ? "text-[#342612]"
-                              : "text-[#342612]/50"
+                  <div key={step.index} className="flex flex-col gap-2">
+                    <div className="flex items-center gap-4">
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
+                          status === "complete"
+                            ? "bg-[#813837] text-[#EAD7BA]"
+                            : status === "active"
+                              ? "bg-[#813837] text-[#EAD7BA] animate-pulse"
+                              : "bg-[#6C5F48]/20 text-[#342612]/50"
                         }`}
                       >
-                        {step.name}
-                      </p>
+                        {status === "complete" ? "✓" : step.index + 1}
+                      </div>
+                      <div className="flex-1 text-left">
+                        <p
+                          className={`font-primary text-lg font-semibold ${
+                            status === "active"
+                              ? "text-[#342612]"
+                              : status === "complete"
+                                ? "text-[#342612]"
+                                : "text-[#342612]/50"
+                          }`}
+                        >
+                          {step.name}
+                        </p>
+                        <p
+                          className={`font-primary text-sm mt-1 ${
+                            status === "active"
+                              ? "text-[#342612]/80"
+                              : status === "complete"
+                                ? "text-[#342612]/70"
+                                : "text-[#342612]/40"
+                          }`}
+                        >
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
                     {status === "active" && (
-                      <div className="w-32 h-2 bg-[#6C5F48]/20 rounded-full overflow-hidden">
+                      <div className="w-48 h-2 bg-[#6C5F48]/20 rounded-full overflow-hidden ml-12">
                         <div
-                          className="h-full bg-[#813837] animate-pulse"
-                          style={{ width: "60%" }}
+                          className="h-full bg-[#813837] transition-all duration-300 ease-out"
+                          style={{ width: `${progress}%` }}
                         ></div>
                       </div>
                     )}
