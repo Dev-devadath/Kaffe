@@ -62,7 +62,22 @@ export function Upload() {
 
   return (
     <div className="min-h-screen bg-[#EAD7BA] p-6 flex flex-col items-center justify-center font-primary">
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-4xl relative">
+        {/* Back Button */}
+        {/* Back Button */}
+        {/* Back Button */}
+        <div className="fixed top-12 left-12 z-50">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 bg-[#342612] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
+          >
+            <span className="transform group-hover:-translate-x-1 transition-transform">
+              ←
+            </span>
+            Back to Home
+          </button>
+        </div>
+
         {/* Step Indicator */}
         <div className="flex justify-center items-center mb-12 font-mono-retro text-sm md:text-base tracking-widest text-[#6C5F48]">
           <span className="font-bold border-b-2 border-[#813837] text-[#813837]">
@@ -136,7 +151,7 @@ export function Upload() {
                   <img
                     src={preview}
                     alt="Preview"
-                    className="w-full h-auto border-2 border-[#342612] filter contrast-110 sepia-[0.3]"
+                    className="w-full h-auto max-h-[300px] object-contain border-2 border-[#342612] filter contrast-110 sepia-[0.3]"
                   />
                   <div className="absolute top-0 right-0 p-4 z-20">
                     <button
