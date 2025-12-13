@@ -9,3 +9,5 @@ venv/
 /build/
 
 auth.json
+medium_auth.json
+instagram_auth.json
