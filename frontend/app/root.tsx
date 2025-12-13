@@ -24,12 +24,23 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export function meta({ }: Route.MetaArgs) {
+  return [
+    { charSet: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { title: "Kaffe" },
+    { property: "og:site_name", content: "Kaffe" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "/coffee.png" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/coffee.png" },
+  ];
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>

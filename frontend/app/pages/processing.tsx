@@ -254,6 +254,7 @@ export function Processing() {
                         &gt; {step.name}...
                       </span>
                       {status === "active" && (
+
                         <span className="inline-block w-2 H-4 bg-[#EAD7BA] ml-1 animate-pulse">
                           _
                         </span>
