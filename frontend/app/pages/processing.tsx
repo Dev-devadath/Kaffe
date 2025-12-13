@@ -207,7 +207,7 @@ export function Processing() {
         <div className="fixed top-12 left-12 z-50">
           <button
             onClick={() => navigate("/")}
-            className="flex items-center gap-2 bg-[#813837] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
+            className="flex items-center gap-2 bg-[#342612] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
           >
             <span className="transform group-hover:-translate-x-1 transition-transform">
               ←
@@ -240,7 +240,7 @@ export function Processing() {
             <h1 className="font-primary text-3xl md:text-5xl font-bold text-[#342612] mb-2 uppercase tracking-widest text-shadow-retro">
               System Processing
             </h1>
-            <p className="font-mono-retro text-sm text-[#6C5F48] mb-4">
+            <p className="font-mono-retro text-sm text-[#342612] mb-4">
               TARGET: {fileName}
             </p>
           </div>
@@ -287,7 +287,7 @@ export function Processing() {
                   );
                 })}
 
-                <div className="mt-4 border-t border-[#6C5F48]/50 pt-2 text-xs text-[#EAD7BA]/40">
+                <div className="mt-4 border-t border-[#6C5F48]/50 pt-2 text-xs text-[#342612]/40">
                   SYSTEM_ID: KFE-2024-X // MEM: OK // CPU: OPTIMAL
                 </div>
               </div>

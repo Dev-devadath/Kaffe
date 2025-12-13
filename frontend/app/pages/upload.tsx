@@ -69,7 +69,7 @@ export function Upload() {
         <div className="fixed top-12 left-12 z-50">
           <button
             onClick={() => navigate("/")}
-            className="flex items-center gap-2 bg-[#813837] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
+            className="flex items-center gap-2 bg-[#342612] text-[#EAD7BA] px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider hover:bg-[#6C5F48] transition-colors shadow-[4px_4px_0px_#342612] active:translate-y-1 active:shadow-none border-2 border-[#342612] group"
           >
             <span className="transform group-hover:-translate-x-1 transition-transform">
               ←
@@ -151,7 +151,7 @@ export function Upload() {
                   <img
                     src={preview}
                     alt="Preview"
-                    className="w-full h-auto max-h-[500px] object-contain border-2 border-[#342612] filter contrast-110 sepia-[0.3]"
+                    className="w-full h-auto max-h-[300px] object-contain border-2 border-[#342612] filter contrast-110 sepia-[0.3]"
                   />
                   <div className="absolute top-0 right-0 p-4 z-20">
                     <button
